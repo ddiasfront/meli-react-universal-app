@@ -11,6 +11,19 @@ export function loadProdutos() {
   }
 }
 
+
+export const SEARCHED_PRODUTOS = Symbol('SEARCHED_PRODUTOS')
+export function searchProdutos(inputValue) {
+  return {
+    [CALL_API]: {
+      method: 'get',
+      path: '/sites/MLA/search?q=' + inputValue,
+      successType: SEARCHED_PRODUTOS
+    }
+  }
+}
+
+
 export const LOADED_QUESTION_DETAIL = Symbol('LOADED_QUESTION_DETAIL')
 export const LOADED_QUESTION_USER = Symbol('LOADED_QUESTION_USER')
 export function loadQuestionDetail ({ id, history }) {

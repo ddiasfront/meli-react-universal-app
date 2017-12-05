@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { loadProdutos } from 'actions/produtos'
+import { loadProdutos, searchProdutos } from 'actions/produtos'
 import { Link } from 'react-router'
 import _ from 'lodash'
 import Produtos from 'components/Produtos'
@@ -22,7 +22,7 @@ class ProdutosContainer extends Component {
           title="Produtos"
         />
         <h2>Prodytos</h2>
-        <Produtos produtos={this.props.produtos} />
+        <Produtos produtos={this.props.produtos} search={this.props.searchProdutos}/>
         <Link to="/">Back to Home</Link>
       </div>
     )
@@ -34,4 +34,4 @@ function mapStateToProps (state) {
 }
 
 export { ProdutosContainer }
-export default connect(mapStateToProps, { loadProdutos })(ProdutosContainer)
+export default connect(mapStateToProps, {loadProdutos, searchProdutos})(ProdutosContainer)

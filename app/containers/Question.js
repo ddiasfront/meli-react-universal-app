@@ -13,7 +13,6 @@ class Question extends Component {
   componentDidMount() {
     let { id } = this.props.params
     this.props.loadQuestionDetail({ id, history: browserHistory })
-    debugger
   }
   render() {
     let { question } = this.props
