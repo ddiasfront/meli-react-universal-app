@@ -4,6 +4,7 @@ import { loadProdutos, searchProdutos } from 'actions/produtos'
 import { Link } from 'react-router'
 import _ from 'lodash'
 import Produtos from 'components/Produtos'
+import SearchInput from 'components/SearchInput'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 
@@ -21,8 +22,9 @@ class ProdutosContainer extends Component {
         <Helmet
           title="Produtos"
         />
-        <h2>Prodytos</h2>
-        <Produtos produtos={this.props.produtos} search={this.props.searchProdutos}/>
+        <h2>Produtos</h2>
+        <SearchInput search={this.props.searchProdutos}/>
+        <Produtos produtos={this.props.produtos}/>
         <Link to="/">Back to Home</Link>
       </div>
     )
