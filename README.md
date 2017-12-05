@@ -1,0 +1,22 @@
+#UNIVERSAL REACT-REDUX APP - MELI
+
+1 - CLONAR O REPOSITÓRIO
+
+`````
+`````
+
+2 - INSTALAR DEPENDENCIAS 
+
+`````
+`````
+
+3 - RODAR VERSAO DE DESENVOLVIMENTO
+
+````
+````
+
+4 - CONSTRUIR VERSÃO DE PRODUÇÃO
+
+
+````
+````
