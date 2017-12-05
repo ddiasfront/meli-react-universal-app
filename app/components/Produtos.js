@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
+import Produto from '../components/Produto'
 import PropTypes from 'prop-types'
 import { toJS } from 'immutable'
 
@@ -8,15 +9,16 @@ class Produtos extends Component {
   render() {
 
     let arrayOfProducts = this.props.produtos.get('results').toJS();
-
+    
     return (
       <div>
         Produtos component
         {
-          arrayOfProducts.map((q)=> {
-            return (
+          arrayOfProducts.map((searchDetails)=> {
+
+            return (  
               <div>
-                <img src={q.thumbnail}></img>
+                <Produto searchDetails={searchDetails}/>
               </div>
             )
           })

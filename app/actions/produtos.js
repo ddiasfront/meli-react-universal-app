@@ -24,6 +24,19 @@ export function searchProdutos(inputValue) {
 }
 
 
+export const LOADED_PRODUCT_DETAIL = Symbol('LOADED_PRODUCT_DETAIL')
+export function loadProductDetail (id) {
+  return {
+    [CALL_API]: {
+      method: 'get',
+      path: `/items/${id}`,
+      successType: LOADED_PRODUCT_DETAIL
+    }
+  }
+}
+
+
+
 export const LOADED_QUESTION_DETAIL = Symbol('LOADED_QUESTION_DETAIL')
 export const LOADED_QUESTION_USER = Symbol('LOADED_QUESTION_USER')
 export function loadQuestionDetail ({ id, history }) {

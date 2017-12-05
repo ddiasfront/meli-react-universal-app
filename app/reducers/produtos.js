@@ -8,7 +8,6 @@ function produtosReducer(state = defaultState, action) {
   switch (action.type) {
     case ActionType.LOADED_PRODUTOS:
       let data = action.response;
-
       return state.merge(data);
       break
     case ActionType.SEARCHED_PRODUTOS:
