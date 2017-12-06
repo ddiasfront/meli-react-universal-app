@@ -10,20 +10,17 @@ import Helmet from 'react-helmet'
 
 let scriptSrcs
 
-let styleSrc
 if ( process.env.NODE_ENV === 'production' ) {
   let refManifest = require('../../../rev-manifest.json')
   scriptSrcs = [
     `/${refManifest['vendor.js']}`,
     `/${refManifest['app.js']}`,
   ]
-  styleSrc = `/${refManifest['css/main.css']}`
 } else {
   scriptSrcs = [
     '/vendor.js',
     '/app.js'
   ]
-  styleSrc = '/main.css'
 }
 
 export default (req, res, next)=> {
@@ -53,7 +50,7 @@ export default (req, res, next)=> {
         let metaHeader = Helmet.rewind();
 
         if ( getCurrentUrl() === reqUrl ) {
-          res.render('index', { metaHeader, html, scriptSrcs, reduxState, styleSrc })
+          res.render('index', { metaHeader, html, scriptSrcs, reduxState })
         } else {
           res.redirect(302, getCurrentUrl())
         }

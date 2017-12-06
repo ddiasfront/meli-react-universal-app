@@ -7,6 +7,7 @@ import Produtos from 'components/Produtos'
 import SearchInput from 'components/SearchInput'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
+import { SearchBar, Container } from '../styled'
 
 class ProdutosContainer extends Component {
   static fetchData({ store }) {
@@ -20,10 +21,16 @@ class ProdutosContainer extends Component {
     return (
       <div>
         <Helmet
-          title="Produtos"
+          title="Produtos" 
+          meta={[
+            {"name": "description", "content": "Uma aplicação contendo React Universal e Redux para o Meli, all the best."},
+          ]}
         />
-        <h2>Produtos</h2>
-        <SearchInput search={this.props.searchProdutos}/>
+        <SearchBar>
+           <Container> 
+            <SearchInput search={this.props.searchProdutos}/>
+          </Container>
+        </SearchBar>
         <Produtos produtos={this.props.produtos}/>
         <Link to="/">Back to Home</Link>
       </div>

@@ -8,6 +8,7 @@ export function loadQuestions() {
       path: '/api/questions',
       successType: LOADED_QUESTIONS
     }
+    
   }
 }
 

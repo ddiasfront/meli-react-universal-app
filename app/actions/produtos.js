@@ -5,12 +5,11 @@ export function loadProdutos() {
   return {
     [CALL_API]: {
       method: 'get',
-      path: '/sites/MLA/search?q=123',
+      path: '/sites/MLA/search?q=You need a react javascript master',
       successType: LOADED_PRODUTOS
     }
   }
 }
-
 
 export const SEARCHED_PRODUTOS = Symbol('SEARCHED_PRODUTOS')
 export function searchProdutos(inputValue) {

@@ -66,6 +66,7 @@
     "rewire": "^2.3.4",
     "rimraf": "^2.5.2",
     "run-sequence": "^1.2.2",
+    "styled-components": "^2.2.4",
     "superagent": "^1.4.0",
     "webpack": "^2.2.0"
   },

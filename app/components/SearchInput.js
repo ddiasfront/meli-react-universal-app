@@ -2,15 +2,17 @@ import React, { Component } from 'react'
 import { Link } from 'react-router'
 import PropTypes from 'prop-types'
 import { toJS } from 'immutable'
+import { SearchTextInput, Wrapper, MainLogo, SearchButton } from '../styled'
 
 class SearchInput extends Component {
 
   constructor() {
     super();
-    this._changeSearchField = this._changeSearchField.bind(this);
     this.state = {
       inputValue: '',
     };
+    this._changeSearchField = this._changeSearchField.bind(this);
+    this._searchNow = this._searchNow.bind(this);
   }
 
   _changeSearchField(e) {
@@ -19,11 +21,12 @@ class SearchInput extends Component {
     this.setState({
       inputValue: value
     });
+    
+  }
 
-    if ( value.length >= 2) {
-      this.props.search(value)
-    }
+  _searchNow() {
 
+    this.props.search(this.state.inputValue)
   }
 
 
@@ -34,13 +37,18 @@ class SearchInput extends Component {
     } = this.state;
 
     return (
-      <div>
-        <input
+        <Wrapper alignItems="center" positionWrapper="relative">
+        <MainLogo src="../assets/images/logo_ml.png"/>
+        <SearchTextInput
           type="text"
           placeholder="Nunca dejes de buscar"
           onChange={this._changeSearchField}
           value={ inputValue || '' } />
-      </div>
+          <SearchButton onClick={this._searchNow}>
+            <img src="../assets/images/ic_Search.png"/>
+          </SearchButton>
+        </Wrapper>
+
     )
   }
 }

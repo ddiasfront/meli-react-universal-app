@@ -1,22 +1,34 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
+import { ProdutoWrapper, ProdutoImg, Wrapper } from '../styled'
 
 class Produto extends Component {
 
   render() {
     let { produto } = this.props
     return (
-      <div>
+      <ProdutoWrapper>
         <Helmet
           title={'Question '}
         />
-        <h4> {this.props.searchDetails.title}</h4>
-        <span>{this.props.searchDetails.sellerAddress.city.name}</span>
-        <span>{this.props.searchDetails.sellerAddress.city.name}</span>
-        <img src={this.props.searchDetails.thumbnail} />
-        <span>{this.props.searchDetails.price}</span>
-      </div>
+
+        <Wrapper flexSize="2">
+          <Wrapper wrapperWidth="auto">
+            <ProdutoImg src={this.props.searchDetails.thumbnail} />
+          </Wrapper>
+          <Wrapper flexDirecion="column" wrapperWidth="auto">
+            <span>{'$ ' + this.props.searchDetails.price}</span>
+            <h4> {this.props.searchDetails.title}</h4>
+          </Wrapper>
+        </Wrapper>
+
+        <Wrapper flexDirecion={"row-reverse"} flexSize="0.6">
+          <Wrapper wrapperWidth="auto">
+            <span>{this.props.searchDetails.sellerAddress.city.name}</span>
+          </Wrapper>
+        </Wrapper>
+      </ProdutoWrapper>
     )
   }
 }
