@@ -32,7 +32,6 @@ class ProdutosContainer extends Component {
           </Container>
         </SearchBar>
         <Produtos produtos={this.props.produtos}/>
-        <Link to="/">Back to Home</Link>
       </div>
     )
   }

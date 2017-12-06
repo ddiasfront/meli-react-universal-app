@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
 
 export const SearchBar = Wrapper.extend`
 background-color: #FFE600;
+margin-bottom:16px;
 `
 
 export const Container = styled.div`

@@ -5,7 +5,7 @@ export function loadProdutos() {
   return {
     [CALL_API]: {
       method: 'get',
-      path: '/sites/MLA/search?q=You need a react javascript master',
+      path: '/sites/MLA/search?q=boxe',
       successType: LOADED_PRODUTOS
     }
   }

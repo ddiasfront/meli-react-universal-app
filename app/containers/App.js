@@ -11,7 +11,6 @@ html{
   font-smoothing: antialiased;
   -webkit-font-smoothing: antialiased;
   text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
-
 }
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -41,6 +40,7 @@ footer, header, hgroup, menu, nav, section {
 body {
   line-height: 1;
   background-color: #eee;
+  font-family: Arial;
 }
 ol, ul {
 	list-style: none;
