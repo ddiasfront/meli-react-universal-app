@@ -40,7 +40,7 @@ class SearchInput extends Component {
 
     return (
         <Wrapper alignItems="center" positionWrapper="relative">
-        <MainLogo src="../assets/images/logo_ml.png"/>
+        <Link to="/"><MainLogo src="../assets/images/logo_ml.png"/></Link>
         <SearchTextInput
           type="text"
           placeholder="Nunca dejes de buscar"

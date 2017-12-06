@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
-import { Divisor, ProdutoWrapper, ProdutoImg, Wrapper, PriceText, CityText, ProdListTitle} from '../styled'
+import { Divisor, ProdutoWrapper, ProdutoImg, Wrapper, PriceText, CityText, ProdListTitle , ProductLink} from '../styled'
 
 class Produto extends Component {
 
@@ -46,7 +46,7 @@ class Produto extends Component {
         </Wrapper>
 
         <Divisor/>
-
+        <ProductLink to={`/produtos/${this.props.searchDetails.id}`}/>
       </ProdutoWrapper>
 
 

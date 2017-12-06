@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const Wrapper = styled.div`
  width: ${props => props.wrapperWidth ? props.wrapperWidth : '100%'};
  display: flex;
@@ -19,6 +20,10 @@ export const Container = styled.div`
  max-width: 1200px;
  display:flex;
  margin: 0 auto;
+ flex-direction: ${props => props.flexDirecion ? props.flexDirecion : 'auto'};
+ background-color: ${props => props.backgroundColor ? props.backgroundColor : 'auto'};
+ padding: ${props => props.containerPadding ? props.containerPadding : '0'};
+ border-radius: ${props =>  props.containerBorderRadius ?  props.containerBorderRadius : 'auto'}
 `
 
 export const SearchTextInput = styled.input`
@@ -47,7 +52,9 @@ export const SearchButton = styled.button`
   border:none;
   outline:none;
   z-index:0;
+  cursor:pointer;
 `
 
 export const MainLogo = styled.img`
 `
+

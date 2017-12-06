@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import { browserHistory } from 'react-router'
 import PropTypes from 'prop-types'
 import { toJS } from 'immutable'
-import { SearchBar, Container } from '../styled'
+import { DescripcionTitle, DescriptionDesct, BotaoComprar, SearchBar, Container, Wrapper, DetailImg, SalesState, DetailTitle, DetailPrice} from '../styled'
 import SearchInput from 'components/SearchInput'
 
 class DetalheProduto extends Component {
@@ -25,12 +25,6 @@ class DetalheProduto extends Component {
       }
     }
 
-    const renderDesc = () => {
-      if (desc && desc.plainText) {
-        return desc.plainText
-      }
-    }
-
     let detalhes = this.props.detalheproduto.toJS();
 
     let spec = detalhes.productDetail
@@ -47,13 +41,27 @@ class DetalheProduto extends Component {
           </Container>
         </SearchBar>
 
-        <span>{spec.soldQuantity}</span>
-        {spec.condition}
-        {spec.price}
-        {spec.title}
-        {renderDesc()}
-        <img src={loadImg()}/>
-        <h1>12312312</h1>
+        <Wrapper flexDirecion="column">
+        <Container flexDirecion="column" backgroundColor="#fff" containerPadding="32px" containerBorderRadius="4px">
+          <Container>
+            <Wrapper  flexSize="1">
+                <DetailImg src={loadImg()}/>
+            </Wrapper>
+            <Wrapper flexDirecion="column" flexSize="0.5">
+                <SalesState>{spec.condition ? 'Nuevo' : false} - {spec.soldQuantity} Vendidos</SalesState>
+                <DetailTitle>{spec.title}</DetailTitle>
+                <DetailPrice>{'$' + spec.price}</DetailPrice>       
+                <BotaoComprar>Comprar</BotaoComprar>         
+            </Wrapper>
+          </Container>
+          <Wrapper wrapperPadding="135px 0px 0px 0px">
+            <Container flexDirecion="column"> 
+              {desc.plainText ? <DescripcionTitle>Descripción del produto</DescripcionTitle> : false}
+              {desc.plainText ? <DescriptionDesct>{desc.plainText}</DescriptionDesct> : false}
+            </Container>    
+          </Wrapper>
+          </Container>
+        </Wrapper>
       </div>
     )
   }
