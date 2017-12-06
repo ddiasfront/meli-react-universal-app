@@ -25,7 +25,9 @@ class SearchInput extends Component {
   }
 
   _searchNow() {
-
+    if (this.props.params) {
+      window.location.replace('/')
+    }
     this.props.search(this.state.inputValue)
   }
 

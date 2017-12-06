@@ -24,13 +24,33 @@ export function searchProdutos(inputValue) {
 
 
 export const LOADED_PRODUCT_DETAIL = Symbol('LOADED_PRODUCT_DETAIL')
+export const LOADED_PRODUCT_DESC = Symbol('LOADED_PRODUCT_DESC')
 export function loadProductDetail (id) {
   return {
-    [CALL_API]: {
-      method: 'get',
-      path: `/items/${id}`,
-      successType: LOADED_PRODUCT_DETAIL
-    }
+    [CHAIN_API]: [
+      ()=> {
+        return {
+          [CALL_API]: {
+            method: 'get',
+            path: `/items/${id}/`,
+            successType: LOADED_PRODUCT_DETAIL,
+            afterError: ()=> {
+              history.push('/')
+            }
+          }
+        }
+      },
+      (productdetail) => {
+        let idRequest = productdetail.id
+        return {
+          [CALL_API]: {
+            method: 'get',
+            path: `/items/${idRequest}/description/`,
+            successType: LOADED_PRODUCT_DESC
+          }
+        }
+      }
+    ]
   }
 }
 
