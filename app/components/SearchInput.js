@@ -13,6 +13,7 @@ class SearchInput extends Component {
     };
     this._changeSearchField = this._changeSearchField.bind(this);
     this._searchNow = this._searchNow.bind(this);
+    this._clearInputAndMove = this._clearInputAndMove.bind(this);
   }
 
   _changeSearchField(e) {
@@ -31,6 +32,13 @@ class SearchInput extends Component {
     this.props.search(this.state.inputValue)
   }
 
+  _clearInputAndMove() {
+    this.setState({
+      inputValue: ''
+    });
+    this.props.history.push('/')
+  }
+
 
   render() {
 
@@ -40,15 +48,17 @@ class SearchInput extends Component {
 
     return (
         <Wrapper alignItems="center" positionWrapper="relative">
-        <Link to="/"><MainLogo src="../assets/images/logo_ml.png"/></Link>
+        <Link to="/produtos" onClick={this._clearInputAndMove}><MainLogo src="../assets/images/logo_ml.png"/></Link>
         <SearchTextInput
           type="text"
           placeholder="Nunca dejes de buscar"
           onChange={this._changeSearchField}
           value={ inputValue || '' } />
-          <SearchButton onClick={this._searchNow}>
+          
+        <Link to={`/produtos/${this.state.inputValue}`}>
+          <SearchButton>
             <img src="../assets/images/ic_Search.png"/>
-          </SearchButton>
+          </SearchButton></Link>
         </Wrapper>
 
     )

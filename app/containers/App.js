@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Helmet from 'react-helmet'
 import { injectGlobal } from 'styled-components';
+import { SearchBar, Container } from '../styled'
+import SearchInput from 'components/SearchInput'
+import { loadProdutos, searchProdutos } from 'actions/produtos'
 
 injectGlobal`
 html{
@@ -11,6 +14,10 @@ html{
   font-smoothing: antialiased;
   -webkit-font-smoothing: antialiased;
   text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+}
+body {
+  opacity: 1;
+  transition: all 0.5s;
 }
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -71,14 +78,21 @@ class App extends Component {
           ]}
           htmlAttributes={{"lang": "en"}}
         />
+         <SearchBar>
+           <Container> 
+            <SearchInput search={this.props.searchProdutos}/>
+          </Container>
+        </SearchBar>
         {this.props.children}
       </div>
     )
   }
 }
-
-function mapStateToProps(state) {
-  return {}
+function mapStateToProps (state) {
+  return { produtos: state.produtos }
 }
 
-export default connect(mapStateToProps)(App)
+
+export default connect(mapStateToProps, {loadProdutos, searchProdutos})(App)
+
+

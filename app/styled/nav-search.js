@@ -53,6 +53,8 @@ export const SearchButton = styled.button`
   outline:none;
   z-index:0;
   cursor:pointer;
+  top: 10px;
+}
 `
 
 export const MainLogo = styled.img`

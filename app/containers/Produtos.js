@@ -1,22 +1,33 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { loadProdutos, searchProdutos } from 'actions/produtos'
-import { Link } from 'react-router'
-import _ from 'lodash'
 import Produtos from 'components/Produtos'
-import SearchInput from 'components/SearchInput'
 import Helmet from 'react-helmet'
-import PropTypes from 'prop-types'
-import { SearchBar, Container } from '../styled'
 
 class ProdutosContainer extends Component {
+  
   static fetchData({ store }) {
-    return store.dispatch(loadProdutos())
+      return store.dispatch(loadProdutos())
   }
 
-  componentDidMount() {
-    this.props.loadProdutos()
+  componentWillReceiveProps(nextprops) {
+    if ( this.props.params.id !== undefined && nextprops.params.id !== this.props.params.id  ) {
+      this.props.searchProdutos(nextprops.params.id)
+    }
+    if ( this.props.params.id == undefined && nextprops.params.id !== undefined ) {
+      this.props.searchProdutos(nextprops.params.id)
+    }
   }
+  
+  componentDidMount() {
+      if ( this.props.params.id ) {
+        this.props.searchProdutos( this.props.params.id)
+      }
+      else {
+      this.props.loadProdutos()
+      }
+  }
+
   render() {
     return (
       <div>
@@ -26,11 +37,7 @@ class ProdutosContainer extends Component {
             {"name": "description", "content": "Uma aplicação contendo React Universal e Redux para o Meli, all the best."},
           ]}
         />
-        <SearchBar>
-           <Container> 
-            <SearchInput search={this.props.searchProdutos}/>
-          </Container>
-        </SearchBar>
+       
         <Produtos produtos={this.props.produtos}/>
       </div>
     )

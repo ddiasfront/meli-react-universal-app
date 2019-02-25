@@ -11,8 +11,9 @@ export default function(history) {
   return (
     <Router history={history}>
       <Route path="/" component={App}>
-        <Route path="produtos/:id" component={DetalheProduto} />
+        <Route path="produto/:id" component={DetalheProduto} />
         <Route path="produtos" component={Produtos} />
+        <Route path="produtos/:id" component={Produtos} />
         <IndexRoute component={Produtos} />
       </Route>
     </Router>

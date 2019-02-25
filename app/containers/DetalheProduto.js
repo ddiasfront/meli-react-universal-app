@@ -2,11 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { loadProductDetail, searchProdutos } from 'actions/produtos'
 import Helmet from 'react-helmet'
-import { browserHistory } from 'react-router'
 import PropTypes from 'prop-types'
-import { toJS } from 'immutable'
 import { DescripcionTitle, DescriptionDesct, BotaoComprar, SearchBar, Container, Wrapper, DetailImg, SalesState, DetailTitle, DetailPrice} from '../styled'
-import SearchInput from 'components/SearchInput'
 
 class DetalheProduto extends Component {
 
@@ -35,12 +32,6 @@ class DetalheProduto extends Component {
         <Helmet
           title={'Produto detalhe ' + this.props.params.id}
         />
-        <SearchBar>
-           <Container> 
-            <SearchInput search={this.props.searchProdutos} params={this.props.params.id}/>
-          </Container>
-        </SearchBar>
-
         <Wrapper flexDirecion="column">
         <Container flexDirecion="column" backgroundColor="#fff" containerPadding="32px" containerBorderRadius="4px">
           <Container>

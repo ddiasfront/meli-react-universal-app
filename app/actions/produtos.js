@@ -5,7 +5,7 @@ export function loadProdutos() {
   return {
     [CALL_API]: {
       method: 'get',
-      path: '/sites/MLA/search?q=boxe',
+      path: '/sites/MLA/search?q=produto',
       successType: LOADED_PRODUTOS
     }
   }

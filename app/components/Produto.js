@@ -46,7 +46,7 @@ class Produto extends Component {
         </Wrapper>
 
         <Divisor/>
-        <ProductLink to={`/produtos/${this.props.searchDetails.id}`}/>
+        <ProductLink to={`/produto/${this.props.searchDetails.id}`}/>
       </ProdutoWrapper>
 
 
