@@ -14,6 +14,7 @@ class SearchInput extends Component {
     this._changeSearchField = this._changeSearchField.bind(this);
     this._searchNow = this._searchNow.bind(this);
     this._clearInputAndMove = this._clearInputAndMove.bind(this);
+    this._handleKeyPress = this._handleKeyPress.bind(this);
   }
 
   _changeSearchField(e) {
@@ -26,10 +27,9 @@ class SearchInput extends Component {
   }
 
   _searchNow() {
-    if (this.props.params) {
-      window.location.replace('/')
+    if ( this.state.inputValue !== undefined && this.state.inputValue !== '')  {
+      this.props.search(this.state.inputValue)
     }
-    this.props.search(this.state.inputValue)
   }
 
   _clearInputAndMove() {
@@ -39,6 +39,12 @@ class SearchInput extends Component {
     this.props.history.push('/')
   }
 
+  _handleKeyPress(e) {
+    if (e.key === 'Enter') {
+     this.props.search(this.state.inputValue)
+    }
+  }
+  
 
   render() {
 
@@ -53,6 +59,7 @@ class SearchInput extends Component {
           type="text"
           placeholder="Nunca dejes de buscar"
           onChange={this._changeSearchField}
+          onKeyPress={this._handleKeyPress}
           value={ inputValue || '' } />
           
         <Link to={`/produtos/${this.state.inputValue}`}>

@@ -14,9 +14,9 @@ class Produtos extends Component {
     return (
       <Wrapper flexDirecion="column" alignItems="center">
         {
-          arrayOfProducts.map((searchDetails)=> {
+          arrayOfProducts.map((searchDetails, i)=> {
             return (  
-                <Produto searchDetails={searchDetails}/>
+                <Produto key={i} searchDetails={searchDetails}/>
             )
           })
         }
